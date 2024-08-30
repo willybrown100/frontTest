@@ -13,6 +13,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import BuyData from './features/BuyData';
 import TvSubscription from './features/TvSubscription';
 import ElectricityBills from './features/ElectricityBills';
+import NotFound from './pages/NotFound';
 
 
 
@@ -26,31 +27,31 @@ const queryClient = new QueryClient({
 
 function App() {
   return (
-     <QueryClientProvider client={queryClient}>
+    <QueryClientProvider client={queryClient}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<SignUp />} />
+          <Route path="rootlayout" element={<RootLayout />}>
+            <Route index element={<Navigate to="dashboard" />} />
+            <Route path="dashboard" element={<Dashboard />}>
+              <Route index element={<Navigate to="dashhome" />} />
 
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<SignUp />} />
-        <Route path="rootlayout" element={<RootLayout />}>
-          <Route index element={<Navigate to="dashboard" />} />
-          <Route path="dashboard" element={<Dashboard />}>
-          <Route index element={<Navigate to="dashhome"/>}/>
-
-            <Route index={true} path="dashhome" element={<DashboardHome />} />
-            <Route path="settings" element={<Settings />} />
+              <Route index={true} path="dashhome" element={<DashboardHome />} />
+              <Route path="settings" element={<Settings />} />
+            </Route>
+            <Route path="airtime" element={<Airtime />} />
+            <Route path="transaction" element={<TransactionHistory />} />
+            <Route path="data" element={<BuyData />} />
+            <Route path="tv" element={<TvSubscription />} />
+            <Route path="airtimetocash" element={<AirtimeToCash />} />
+            <Route path="bills" element={<ElectricityBills />} />
+            <Route path="help" element={<HelpAndSupport />} />
+            <Route />
           </Route>
-          <Route path="airtime" element={<Airtime />} />
-          <Route path="transaction" element={<TransactionHistory />} />
-          <Route path="data" element={< BuyData/>} />
-          <Route path="tv" element={<TvSubscription/>} />
-          <Route path="airtimetocash" element={<AirtimeToCash />} />
-          <Route path="bills" element={<ElectricityBills />} />
-          <Route path="help" element={<HelpAndSupport />} />
-          <Route />
-        </Route>
-      </Routes>
-    </BrowserRouter>
-     </QueryClientProvider>
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </BrowserRouter>
+    </QueryClientProvider>
   );
 }
 
