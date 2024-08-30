@@ -1,6 +1,32 @@
-import React from 'react'
+import React, { useRef } from 'react'
 
 export default function Settings() {
+      const fileRef = useRef(null); ;
+    const handleButtonClick = function (
+      e
+    ) {
+      e.preventDefault();
+      if (fileRef.current) {
+        fileRef.current.click();
+      }
+    };
+  const handleFileChange = (event) => {
+    // we take the file the user select and store it in "file" and converted it to base64 string
+    const file = event.target.files?.[0];
+    if (file) {
+      setFileName(file.name);
+      localStorage.setItem("fileName", file.name);
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        if (typeof reader.result === "string") {
+          const base64 = reader.result.split(",")[1];
+          // localStorage.setItem("pdf",base)
+          updatePdfFile(base64);
+        }
+      };
+      reader.readAsDataURL(file);
+    }
+  };
   return (
     <div className="grid grid-cols-[400px,405px] px-8 gap-x-3">
       <div className="space-y-6">
@@ -12,8 +38,14 @@ export default function Settings() {
               className="rounded-full"
             />
           </div>
-
-          <button className="text-btn flex gap-x-2 items-center">
+          <input
+            type="file"
+            ref={fileRef}
+            accept="image"
+            onChange={handleFileChange}
+            className="hidden"
+          />
+          <button onClick={handleButtonClick} className="text-btn flex gap-x-2 items-center">
             <svg
               width="18"
               height="18"
@@ -34,31 +66,31 @@ export default function Settings() {
           <div className="flex justify-between items-center">
             <span className="capitalize text-[#4C689E]">name</span>
             <span className="text-[#4C689E] capitalize font-semibold">
-              lawal
+              Lawal Wahab Babatunde
             </span>
           </div>
           <div className="flex justify-between items-center">
             <span className="text-[#4C689E] capitalize">email</span>
             <span className="text-[#4C689E]  capitalize font-semibold">
-              lawal
+              wabdotmail@gmail.com
             </span>
           </div>
           <div className="flex justify-between items-center">
             <span className="text-[#4C689E] capitalize">phone number</span>
             <span className="text-[#4C689E]  capitalize font-semibold">
-              lawal
+              0906 856 2949
             </span>
           </div>
           <div className="flex justify-between items-center">
             <span className="text-[#4C689E] capitalize">account status</span>
-            <span className="text-[#4C689E]  capitalize font-semibold">
-              lawal
+            <span className="text-[#2DAE32]  capitalize font-semibold">
+              Active
             </span>
           </div>
           <div className="flex justify-between items-center">
             <span className="text-[#4C689E] capitalize">referral link</span>
             <span className="text-[#4C689E]  capitalize font-semibold">
-              lawal
+              www.subsum.com/tre/wd...
             </span>
           </div>
           <div className="flex justify-between items-center">
@@ -98,7 +130,7 @@ export default function Settings() {
             change pin
           </button>
         </div>
-        <form className="border p-2 flex flex-col gap-y-4 rounded-xl border-[#D7E1F4]">
+        <form className="border p-2 flex flex-col gap-y-4 py-4 rounded-xl border-[#D7E1F4]">
           <div className="flex flex-col gap-y-1">
             <label className="text-[#4C689E] capitalize">
               current password

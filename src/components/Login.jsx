@@ -21,7 +21,9 @@ navigate("/rootlayout/dashboard");
   return (
     <div className="grid place-items-center mt-4">
       <form className="flex flex-col gap-y-4" onSubmit={handleSubmit(onSubmit)}>
-        <h3 className="text-center text-[1.4rem] text-[#4C689E] font-semibold">Login</h3>
+        <h3 className="text-center text-[1.4rem] text-[#4C689E] font-semibold">
+          Login
+        </h3>
         <button className="bg-white shadow-xl py-3 px-11 rounded-md justify-center  flex gap-x-3 items-center">
           <svg
             width="24"
@@ -73,17 +75,21 @@ navigate("/rootlayout/dashboard");
                 type="email"
                 className="border p-1 rounded-md border-stone-200"
                 {...register("email", {
-                  required: true,
+                  required: "this field is required",
                   pattern: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
                 })}
               />
-          
+              {errors?.email?.message && (
+                <p className="text-red-500 text-sm capitalize">
+                  {errors.email.message}
+                </p>
+              )}
             </div>
             <PasswordField
               label="Password"
               placeholder="password"
               register={register}
-              error={errors.Password}
+              errors={errors}
               errorMessage="Password is required and must be at least 8 characters long, containing both letters and numbers"
             />
             <div className="flex items-center mt-3 justify-between ">
@@ -98,9 +104,11 @@ navigate("/rootlayout/dashboard");
                   htmlFor="check"
                   className="bg-[#EFF3FB] relative label w-[40px] h-[20px] rounded-full"
                 ></label>
+
                 <span className="capitalize text-[#4C689E] font-semibold text-sm">
                   remember me{" "}
                 </span>
+                
               </div>
               <button className="text-[#EE5D50] capitalize">
                 recover password

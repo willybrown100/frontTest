@@ -11,10 +11,10 @@ import React, { useState } from 'react'
 
 // import React, { useState } from 'react';
 
-const Stepper = () => {
-  const [currentStep, setCurrentStep] = useState(1);
+const Stepper = ({currentStep,setCurrentStep}) => {
+  // const [currentStep, setCurrentStep] = useState(1);
 
-  const steps = ['fill info', 'make payment', 'view receipt'];
+  const steps = ['Fill Info', 'Make Payment', 'View Receipt'];
 
   const handleNext = () => {
     if (currentStep < steps.length) {
@@ -22,18 +22,14 @@ const Stepper = () => {
     }
   };
 
-  const handlePrevious = () => {
-    if (currentStep > 1) {
-      setCurrentStep(currentStep - 1);
-    }
-  };
+
 
   return (
     <div className="flex flex-col items-center w-full">
       {/* Stepper Navigation */}
       <div className="grid gap-x-2 grid-cols-3 ">
         {steps.map((step, index) => (
-          <div key={index} className="flex flex-col items-center w-auto relative mx-12"> {/* Added mx-4 for space */}
+          <div key={index} className="flex flex-col items-center w-auto relative mx-8"> {/* Added mx-4 for space */}
             {/* Step Text */}
             <div
               className={`text-lg mb-1 ${
@@ -44,7 +40,7 @@ const Stepper = () => {
             </div>
             {/* Line Under Text */}
             <div
-              className={`absolute w-40 h-[0.2rem] transition-all duration-300 ${
+              className={`absolute w-[11.3rem] h-[0.2rem] transition-all duration-300 ${
                 currentStep > index ? 'bg-btn' : 'bg-gray-300'
               }`}
               style={{ bottom: '-2px' }}
@@ -55,20 +51,14 @@ const Stepper = () => {
 
       {/* Stepper Actions */}
       <div className="flex mt-8 space-x-4">
+  
         {/* <button
-          onClick={handlePrevious}
-          disabled={currentStep === 1}
-          className="px-4 py-2 text-white bg-gray-500 rounded disabled:opacity-50"
-        >
-          Previous
-        </button> */}
-        <button
           onClick={handleNext}
           disabled={currentStep === steps.length}
           className="px-4 py-2 text-white bg-blue-500 rounded disabled:opacity-50"
         >
           Next
-        </button>
+        </button> */}
       </div>
     </div>
   );

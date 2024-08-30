@@ -6,30 +6,31 @@ export default function LinkItem({item}) {
     const pathz = pathname.split("/").at(2)
     console.log(pathname,pathz)
     const {name,icon,path,dropDown}=item
+    const p = String(path).split("/").at(2)
+    console.log(p,pathz)
+  
   return (
     <li
       className={`${
-        pathname === path 
-          ? "bg-btn text-white"
-          : ""
+        pathz === p  ? "bg-btn text-white" : ""
       } rounded-md p-2`}
     >
       <NavLink to={path} className={` flex items-center gap-x-4`}>
         <div className="flex items-center gap-x-3">
-          <span>{icon}</span>
-          <span
+          <span >{icon}</span>
+          <div
             className={`${
-              pathname === path
+              pathz === p
                 ? "bg-btn text-white"
                 : "text-[#6882B6] capitalize mb-0"
             }  `}
           >
             {name}
-          </span>
+          </div>
         </div>
       </NavLink>
     </li>
   );
 }
 
-   
+  

@@ -1,47 +1,14 @@
 import React from 'react'
 import Button from '../ui/Button';
 import Login from '../components/Login';
+import Sidebar from '../components/Sidebar';
+import HomeSide from '../components/HomeSide';
 
 export default function SignUp() {
   return (
-    <div className="grid grid-cols-[16rem,1fr] min-h-screen  grid-rows-[1fr] ">
-      <div className="row-span-full   bg-gradient-to-b from-blue-900 to-blue-600 text-white shadow-lg  p-6">
-        <div className="mb-6">
-          <h2 className="text-2xl font-bold text-center">subsumm</h2>
-        </div>
-
-        <nav className="">
-          <ul className="space-y-6">
-            <li className="flex items-center space-x-4 cursor-pointer hover:bg-blue-800 hover:rounded-lg p-3">
-              <span>📊</span>
-              <span>Dashboard</span>
-            </li>
-            <li className="flex items-center space-x-4 cursor-pointer hover:bg-blue-800 hover:rounded-lg p-3">
-              <span>💸</span>
-              <span>Buy Airtime</span>
-            </li>
-            <li className="flex items-center space-x-4 cursor-pointer hover:bg-blue-800 hover:rounded-lg p-3">
-              <span>📶</span>
-              <span>Buy Data</span>
-            </li>
-            <li className="flex items-center space-x-4 cursor-pointer hover:bg-blue-800 hover:rounded-lg p-3">
-              <span>📺</span>
-              <span>TV Subscription</span>
-            </li>
-            <li className="flex items-center space-x-4 cursor-pointer hover:bg-blue-800 hover:rounded-lg p-3">
-              <span>💡</span>
-              <span>Pay Electric Bill</span>
-            </li>
-            <li className="flex items-center space-x-4 cursor-pointer hover:bg-blue-800 hover:rounded-lg p-3">
-              <span>🕒</span>
-              <span>Transaction History</span>
-            </li>
-          </ul>
-        </nav>
-
-        <div className="text-center">
-          <p>The BEST place to subscribe / buy</p>
-        </div>
+    <div className="grid grid-cols-[18rem,1fr] min-h-screen  grid-rows-[1fr] ">
+      <div className=''> 
+        <HomeSide />
       </div>
       <div>
         <div className="flex justify-between p-6">
@@ -65,7 +32,7 @@ export default function SignUp() {
           </button>
           <Button className="px-8">sign up</Button>
         </div>
-    <Login/>
+        <Login />
       </div>
     </div>
   );

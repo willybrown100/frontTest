@@ -3,11 +3,12 @@ import Stepper from '../components/Stepper'
 import Button from '../ui/Button';
 
 export default function AirtimeToCash() {
+  const [currentStep, setCurrentStep] = useState(1);
   const [select,setSelect]=useState("etisalat")
   console.log(select)
   return (
     <div className="w-[500px ]  mx-auto">
-      <Stepper />
+      <Stepper currentStep={currentStep} setCurrentStep={setCurrentStep}/>
       <form className="border  flex flex-col gap-y-3 py-4 border-[#c5d3ec] w-[500px] mx-auto px-4 bg-[#f2f4f7] rounded-lg">
         <h4 className="text-center font-semibold text-[#6882B6]">
           airtime to cash
@@ -19,7 +20,7 @@ export default function AirtimeToCash() {
               <div className="flex gap-x-2">
                 <StatusIcon statusicon={select} />
                 <select
-                  className=" outline-none text-[#214386]  capitalize font-semibold"
+                  className=" outline-none text-[#214386] select capitalize font-semibold"
                   value={select}
                   onChange={(e) => setSelect(e.target.value)}
                 >

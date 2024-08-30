@@ -7,7 +7,7 @@ export function PasswordField ({
   label,
   placeholder,
   register,
-  error,
+  errors,
   errorMessage,
 
   
@@ -23,8 +23,8 @@ export function PasswordField ({
         <input
           type={!open ? "password" : "text"}
           placeholder={placeholder}
-          {...register("password", { required: true })}
-          className="border-none focus:border-none outline-none"
+          {...register("password", { required: "this field is required" })}
+          className="border-none focus:border-none outline-none w-full"
           autoComplete="current-password"
         />
         <span className="absolute right-2 top-2 cursor-pointer">
@@ -51,8 +51,10 @@ export function PasswordField ({
             </svg>
           )}
         </span>
-        {error && <span className="text-white">{errorMessage}</span>}
       </div>
+        {errors?.password?.message && (
+          <p className="text-red-500 text-sm capitalize">{errors.password?.message}</p>
+        )}
     </div>
   );
 };
