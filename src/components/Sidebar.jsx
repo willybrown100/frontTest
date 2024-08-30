@@ -202,14 +202,16 @@ setOpen(!open)
       },
     ];
   return (
-    <div className="row-span-full bg-[#EFF3FB] overflow-y-scroll h-screen p-4 grid grid-rows-[auto,1fr,30px] gap-y-7">
+    <div className="row-span-full bg-[#EFF3FB] h-screen p-4 grid grid-rows-[auto,1fr] gap-y-7">
       <Logo />
-      <ul className="flex flex-col gap-y-7 mt-9">
-        {links.map((item) => (
-          <LinkItem item={item} key={item.name} />
-        ))}
-      </ul>
-      <button className='flex items-center gap-x-2'>
+
+      <div className="h-[87vh] grid grid-rows-[auto,150px] overflow-y-scroll">
+        <ul className="flex flex-col gap-y-7 mt-9">
+          {links.map((item) => (
+            <LinkItem item={item} key={item.name} />
+          ))}
+        </ul>
+      <button className="flex items-center gap-x-2 ml-2">
         <svg
           width="22"
           height="20"
@@ -223,10 +225,11 @@ setOpen(!open)
             stroke-width="2"
             stroke-linecap="round"
             stroke-linejoin="round"
-          />
+            />
         </svg>{" "}
-        logout
+        <span className="text-[#6882B6] capitalize font-smibold">logout</span>
       </button>
+            </div>
     </div>
   );
 }
