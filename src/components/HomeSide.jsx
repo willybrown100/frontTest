@@ -152,7 +152,7 @@ export default function HomeSide() {
  
   return (
     <div className="row-span-full homeside z-20   pl-4 pt-4  grid grid-rows-[auto,auto] min-h-screen">
-      <div className="bg-white z-[-1] rounded-tl-[3rem] sidebar w-full p-5">
+      <div className="bg-white z-[-1] rounded-tl-[3rem] overflow-x-hidden sidebar w-full p-5">
         <Logo />
         <ul className="flex flex-col gap-y-7 mt-9">
           {links.map((item) => (
