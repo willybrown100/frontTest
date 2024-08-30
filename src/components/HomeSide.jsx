@@ -27,9 +27,7 @@ export default function HomeSide() {
          >
            <path
              d="M1 10H7C7.55 10 8 9.55 8 9V1C8 0.45 7.55 0 7 0H1C0.45 0 0 0.45 0 1V9C0 9.55 0.45 10 1 10ZM1 18H7C7.55 18 8 17.55 8 17V13C8 12.45 7.55 12 7 12H1C0.45 12 0 12.45 0 13V17C0 17.55 0.45 18 1 18ZM11 18H17C17.55 18 18 17.55 18 17V9C18 8.45 17.55 8 17 8H11C10.45 8 10 8.45 10 9V17C10 17.55 10.45 18 11 18ZM10 1V5C10 5.55 10.45 6 11 6H17C17.55 6 18 5.55 18 5V1C18 0.45 17.55 0 17 0H11C10.45 0 10 0.45 10 1Z"
-             fill={`${
-               pathname === "/" ? "white" : "#6882B6" 
-             } `}
+             fill={`${pathname === "/" ? "white" : "#6882B6"} `}
            />
          </svg>
        ),
@@ -99,6 +97,7 @@ export default function HomeSide() {
            viewBox="0 0 24 24"
            fill="none"
            xmlns="http://www.w3.org/2000/svg"
+           className="opacity-0"
          >
            <path
              d="M8.40002 20.4001L12 16.8001L15.6 20.4001M4.80002 16.8001H19.2C20.5255 16.8001 21.6 15.7256 21.6 14.4001V6.0001C21.6 4.67461 20.5255 3.6001 19.2 3.6001H4.80002C3.47454 3.6001 2.40002 4.67461 2.40002 6.0001V14.4001C2.40002 15.7256 3.47454 16.8001 4.80002 16.8001Z"
@@ -106,6 +105,7 @@ export default function HomeSide() {
              strokeWidth="2"
              strokeLinecap="round"
              strokeLinejoin="round"
+             className="opacity-0"
            />
          </svg>
        ),
@@ -113,7 +113,7 @@ export default function HomeSide() {
      },
      {
        name: (
-         <div className="flex items-center gap-x-2">
+         <div className="flex items-center gap-x-2 opacity-0">
            <span className="capitalize"> pay Electricity bills</span>
            <select className="bg-transparent" value="airtime">
              <option></option>
@@ -130,9 +130,9 @@ export default function HomeSide() {
        path: "/rootlayout/bills",
      },
      {
-       name: "airtime to cash",
+       name: <span className="opacity-0">airtime to cash</span>,
        icon: (
-         <div>
+         <div className="opacity-0">
            {pathname === "/rootlayout/airtimetocash" ? (
              <FiLogOut />
            ) : (
