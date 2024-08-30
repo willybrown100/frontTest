@@ -137,7 +137,7 @@ setOpen(!open)
       {
         name: "airtime to cash",
         icon: (
-          <div>
+          <div className="relative">
             {pathname === "/rootlayout/airtimetocash" ? (
               <FiLogOut />
             ) : (
@@ -149,6 +149,38 @@ setOpen(!open)
                 }
               />
             )}
+            <div
+              className={`${
+                pathname === "/rootlayout/airtimetocash" ? "opacity-[1]" : ""
+              } absolute top-8 p-1 gap-3 flex opacity-0 `}
+            >
+              <img src="/images/mtn.png" alt="mtn" className="w-[2rem]" />
+
+              <img src="/images/airtel.png" alt="airtel" className="w-[2rem]" />
+              <img
+                src="/images/9mobile.png"
+                alt="airtel"
+                className="w-[2rem]"
+              />
+              <button className="text-[#6882B6] flex gap-x-2 items-center">
+                more
+                <svg
+                  width="8"
+                  height="12"
+                  viewBox="0 0 8 12"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M1.60002 1.19995L6.40002 5.99995L1.60002 10.8"
+                    stroke="#4169E1"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
+            </div>
           </div>
         ),
         path: "/rootlayout/airtimetocash",
