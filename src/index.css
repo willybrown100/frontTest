@@ -23,8 +23,28 @@ a {
 }
 .homeside{
   
-  background: linear-gradient(rgb(116, 129, 250,0.9), rgba(134, 161, 250, 0.4),rgba(184, 189, 241, 0.96), rgba(2, 18, 153, 0.75), rgb(2, 14, 124));
+  /* background: linear-gradient(rgb(116, 129, 250,0.9), rgba(134, 161, 250, 0.4),rgba(184, 189, 241, 0.96), rgba(2, 18, 153, 0.75), rgb(2, 14, 124)); */
+  background: linear-gradient(rgb(5, 28, 241), rgba(154, 158, 206, 0.796),rgba(154, 158, 206, 0.796), rgba(2, 29, 235, 0.582), rgba(4, 28, 241, 0.9), rgb(4, 0, 226));
+
+  /* height:100vh; */
 }
+
+/* .banner{
+}; */
+
+.sidebar{
+    position: fixed;
+    background: linear-gradient(rgba(255, 255, 255, 0.808), rgba(226, 229, 247, 0.418), rgba(114, 122, 201, 0.404), rgb(4, 0, 226));
+    bottom: 0;
+    /* right: 0; */
+    width: 20%;
+    height: 95%;
+    border-top-left-radius: 2rem;
+    z-index: 2;
+    /* display: grid; */
+    padding-top: 5rem;
+    }
+
 
 @keyframes spin {
   0% { transform: rotate(0deg); }

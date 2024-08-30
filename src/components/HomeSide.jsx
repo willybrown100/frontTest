@@ -151,15 +151,15 @@ export default function HomeSide() {
    ];
  
   return (
-    <div className="row-span-full homeside z-20   pl-4 pt-4  grid grid-rows-[auto,1fr,30px] min-h-screen">
-      <div className="bg-white z-[-1] rounded-tl-[3rem] w-full p-5">
+    <div className="row-span-full homeside z-20   pl-4 pt-4  grid grid-rows-[auto,auto] min-h-screen">
+      <div className="bg-white z-[-1] rounded-tl-[3rem] sidebar w-full p-5">
         <Logo />
         <ul className="flex flex-col gap-y-7 mt-9">
           {links.map((item) => (
             <HomeLink item={item} key={item.name} />
           ))}
         </ul>
-        <button className="flex items-center gap-x-2">
+        {/* <button className="flex items-center gap-x-2">
           <svg
             width="22"
             height="20"
@@ -176,11 +176,12 @@ export default function HomeSide() {
             />
           </svg>{" "}
           logout
-        </button>
-      </div>
-      <h3 className="z-20 text-white font-semibold">
-        the BEST place to <br /> subscribe /buy
+        </button> */}
+      <h3 className="z-20 text-white  font-semibold">
+        <span className='text-2xl'> the</span> BEST <span className="text-2xl">place to</span> <br />{" "}
+        <span className="text-2xl">subscribe / buy</span>
       </h3>
+      </div>
     </div>
   );
 }
