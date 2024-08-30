@@ -111,24 +111,7 @@ export default function HomeSide() {
        ),
        path: "/rootlayout/tv",
      },
-     {
-       name: (
-         <div className="flex items-center gap-x-2 opacity-0">
-           <span className="capitalize"> pay Electricity bills</span>
-           <select className="bg-transparent" value="airtime">
-             <option></option>
-           </select>
-         </div>
-       ),
-       icon: (
-         <FiZap
-           className={` text-2xl ${
-             pathname === "/rootlayout/bills" ? "white" : "text-[#6882B6] "
-           } `}
-         />
-       ),
-       path: "/rootlayout/bills",
-     },
+    
      {
        name: <span className="opacity-0">airtime to cash</span>,
        icon: (
@@ -151,8 +134,8 @@ export default function HomeSide() {
    ];
  
   return (
-    <div className="row-span-full homeside z-20   pl-4 pt-4  grid grid-rows-[auto,auto] min-h-screen">
-      <div className="bg-white z-[-1] rounded-tl-[3rem] overflow-x-hidden sidebar w-full p-5">
+    <div className="row-span-full homeside z-20   pl-4 pt-4   min-h-screen">
+      <div className="bg-white z-[-1] grid grid-rows-[1fr,auto] rounded-tl-[3rem] overflow-auto sidebar w-full p-5">
         <Logo />
         <ul className="flex flex-col gap-y-7 mt-9">
           {links.map((item) => (
